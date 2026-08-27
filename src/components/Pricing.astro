@@ -1,0 +1,102 @@
+---
+import { pricingPlans } from '../data/pricing';
+
+function formatCurrency(amount: number): string {
+  if (amount === 0) return 'Miễn Phí';
+  return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(amount);
+}
+---
+
+<section id="pricing" class="py-16 md:py-20 border-b border-[#232734] bg-[#090a0f]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="text-center max-w-3xl mx-auto space-y-3 mb-12">
+      <span class="text-xs font-bold uppercase tracking-wider text-slate-400">
+        Bảng Giá Dịch Vụ
+      </span>
+      <h2 class="text-2xl sm:text-4xl font-bold text-white tracking-tight">
+        Gói Cước Linh Hoạt Theo Quy Mô Đội Ngũ
+      </h2>
+      <p class="text-slate-400 text-sm sm:text-base">
+        Minh bạch chi phí, không phụ phí ẩn, dễ dàng nâng cấp theo nhu cầu phát triển.
+      </p>
+    </div>
+
+    <!-- Pricing Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+      {pricingPlans.map((plan) => (
+        <div
+          class={`relative rounded-xl p-7 flex flex-col justify-between transition-colors duration-150 ${
+            plan.popular
+              ? 'bg-[#11131a] border-2 border-[#0068FF]'
+              : 'bg-[#11131a] border border-[#232734]'
+          }`}
+        >
+          {plan.popular && (
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-0.5 rounded bg-[#0068FF] text-white text-[11px] font-bold uppercase tracking-wider">
+              Khuyên Dùng
+            </div>
+          )}
+
+          <div class="space-y-5">
+            <div>
+              <h3 class="text-xl font-bold text-white">{plan.name}</h3>
+              <p class="text-xs text-slate-400 mt-1.5 min-h-[36px] leading-relaxed">
+                {plan.desc}
+              </p>
+            </div>
+
+            <!-- Price Display -->
+            <div class="pt-3 border-t border-[#232734] flex items-baseline gap-1.5">
+              <span class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+                {formatCurrency(plan.monthlyPrice)}
+              </span>
+              {plan.monthlyPrice > 0 && (
+                <span class="text-xs text-slate-400">/tháng/nhân sự</span>
+              )}
+            </div>
+
+            <!-- Features List -->
+            <div class="space-y-2.5 pt-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Quyền lợi:</span>
+              <ul class="space-y-2 text-xs sm:text-sm text-slate-200">
+                {plan.features.map((feature) => (
+                  <li class="flex items-start gap-2">
+                    <svg class="w-4 h-4 text-emerald-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+                {plan.excludedFeatures?.map((excluded) => (
+                  <li class="flex items-start gap-2 text-slate-500 line-through">
+                    <svg class="w-4 h-4 text-slate-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                    <span>{excluded}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <!-- CTA Button -->
+          <div class="pt-6">
+            <a
+              href={plan.ctaLink}
+              class={`w-full py-2.5 px-4 rounded-lg font-semibold text-xs sm:text-sm text-center flex items-center justify-center transition-colors duration-150 ${
+                plan.popular
+                  ? 'bg-[#0068FF] hover:bg-[#0057d8] text-white'
+                  : 'bg-[#171a23] hover:bg-[#1f232f] text-slate-200 hover:text-white border border-[#282d3d]'
+              }`}
+            >
+              {plan.ctaText}
+            </a>
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

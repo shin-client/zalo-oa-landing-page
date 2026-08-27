@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Metrics from '../components/Metrics.astro';
+import PainPoints from '../components/PainPoints.astro';
+import { FeatureShowcase } from '../components/FeatureShowcase';
+import LiveTour from '../components/LiveTour.astro';
+import Pricing from '../components/Pricing.astro';
+import SecurityCompliance from '../components/SecurityCompliance.astro';
+import FAQ from '../components/FAQ.astro';
+import CTASection from '../components/CTASection.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <Navbar />
+  <main>
+    <Hero />
+    <Metrics />
+    <PainPoints />
+    <FeatureShowcase client:visible />
+    <LiveTour />
+    <Pricing />
+    <SecurityCompliance />
+    <FAQ />
+    <CTASection />
+  </main>
+  <Footer />
+</Layout>

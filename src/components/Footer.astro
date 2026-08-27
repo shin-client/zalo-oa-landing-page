@@ -1,0 +1,64 @@
+---
+import { siteConfig } from '../data/site';
+---
+
+<footer class="bg-[#07080c] text-slate-400 text-xs sm:text-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      
+      <!-- Brand Column with Official Logo -->
+      <div class="space-y-3 md:col-span-2">
+        <a href="/" class="flex items-center gap-2.5">
+          <img
+            src={siteConfig.logo}
+            alt="ZTKS Logo"
+            class="w-8 h-8 rounded-lg object-cover border border-[#2e3446]"
+            width="32"
+            height="32"
+          />
+          <span class="font-bold text-base tracking-tight text-white">{siteConfig.name}</span>
+        </a>
+        <p class="text-xs text-slate-400 max-w-sm leading-relaxed">
+          Nền tảng quản lý đa Zalo OA, gọi thoại Zalo VoIP trực tiếp, gửi ZNS tự động và tạo đơn hàng CRM tập trung cho doanh nghiệp.
+        </p>
+        <div class="text-xs text-slate-400">
+          Hệ sinh thái: <a href="https://taokosao.com" class="text-slate-300 hover:underline">taokosao.com</a>
+        </div>
+      </div>
+
+      <!-- Features Links -->
+      <div class="space-y-2.5">
+        <div class="font-bold text-xs uppercase tracking-wider text-slate-200">Tính Năng</div>
+        <ul class="space-y-1.5 text-xs text-slate-400">
+          <li><a href="#features" class="hover:text-white transition-colors">Live Chat Đa OA</a></li>
+          <li><a href="#features" class="hover:text-white transition-colors">Zalo VoIP Call v4</a></li>
+          <li><a href="#features" class="hover:text-white transition-colors">Chiến Dịch ZNS Tự Động</a></li>
+          <li><a href="#features" class="hover:text-white transition-colors">Đơn Hàng Trong Chat</a></li>
+          <li><a href="#features" class="hover:text-white transition-colors">Ví & SePay VietQR</a></li>
+        </ul>
+      </div>
+
+      <!-- Quick Navigation -->
+      <div class="space-y-2.5">
+        <div class="font-bold text-xs uppercase tracking-wider text-slate-200">Điều Hướng</div>
+        <ul class="space-y-1.5 text-xs text-slate-400">
+          <li><a href={siteConfig.appUrl} class="text-[#0068FF] hover:underline font-medium">Đăng Nhập Hệ Thống</a></li>
+          <li><a href="#pricing" class="hover:text-white transition-colors">Bảng Giá Dịch Vụ</a></li>
+          <li><a href="#security" class="hover:text-white transition-colors">Bảo Mật Zalo API</a></li>
+          <li><a href="#faq" class="hover:text-white transition-colors">Câu Hỏi Thường Gặp</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="pt-8 mt-8 border-t border-[#1d212d] flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
+      <div>
+        &copy; {new Date().getFullYear()} {siteConfig.name} — Nền tảng Zalo OA CRM & Automation.
+      </div>
+      <div class="flex items-center gap-4">
+        <a href={siteConfig.appUrl} class="hover:text-slate-300">Đăng Nhập</a>
+        <a href="#security" class="hover:text-slate-300">Chính Sách & Bảo Mật</a>
+      </div>
+    </div>
+  </div>
+</footer>

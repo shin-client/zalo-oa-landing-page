@@ -1,0 +1,54 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-08-27T12:23:23+07:00",
+  "installMode": "symlink",
+  "symlinkScope": "bulk",
+  "kitRepoPath": "/home/ngxc/workspace/40-tools/engineered-skills",
+  "targets": [
+    ".claude"
+  ],
+  "symlinkTargets": [
+    ".claude"
+  ],
+  "skills": {
+    "mode": "select",
+    "include": [
+      "ask-skills",
+      "code-review",
+      "codebase-design",
+      "diagnosing-bugs",
+      "domain-modeling",
+      "git-flow",
+      "grill-with-docs",
+      "grilling",
+      "docs",
+      "implement",
+      "tdd",
+      "improve-codebase-architecture",
+      "prototype",
+      "research",
+      "resolving-merge-conflicts",
+      "setup-skills",
+      "to-spec",
+      "to-tickets",
+      "triage",
+      "wayfinder",
+      "wizard",
+      "grill-me",
+      "handoff",
+      "teach",
+      "to-questionnaire",
+      "wait-what",
+      "writing-for-agents",
+      "git-guardrails-claude-code",
+      "migrate-to-shoehorn",
+      "scaffold-exercises",
+      "setup-pre-commit"
+    ],
+    "exclude": []
+  },
+  "options": {
+    "preserveUserContent": true,
+    "refuseOverwriteNonSymlinkDir": true
+  }
+}

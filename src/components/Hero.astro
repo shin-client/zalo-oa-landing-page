@@ -1,0 +1,132 @@
+---
+import { siteConfig } from '../data/site';
+---
+
+<section class="relative pt-8 pb-12 sm:pt-12 sm:pb-16 md:pt-16 md:pb-24 border-b border-[#232734] bg-[#090a0f] overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto space-y-4 sm:space-y-5">
+      
+      <!-- Clean Category Eyebrow -->
+      <div class="inline-flex items-center px-2.5 py-1 rounded bg-[#11131a] border border-[#232734] text-slate-300 text-[11px] sm:text-xs font-medium tracking-wide">
+        ZTKS PLATFORM — QUẢN TRỊ ZALO OA TẬP TRUNG
+      </div>
+
+      <!-- Main Headline (Responsive typography) -->
+      <h1 class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight">
+        Tối Ưu Vận Hành Zalo OA<br class="hidden sm:inline" />
+        {" "}Tăng Tốc Độ Chốt Đơn & CSKH
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-xs sm:text-base md:text-lg text-slate-400 max-w-2xl mx-auto leading-relaxed font-normal">
+        Nền tảng quản lý đa tài khoản OA, gọi thoại Zalo VoIP trực tiếp từ web, tự động hóa gửi tin ZNS và lên đơn hàng ngay trong hội thoại chat.
+      </p>
+
+      <!-- CTA Buttons (Full width on mobile, inline on desktop) -->
+      <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2.5 sm:gap-3">
+        <a
+          href={siteConfig.appUrl}
+          class="w-full sm:w-auto px-5 py-3 text-sm font-semibold text-white bg-[#0068FF] hover:bg-[#0057d8] rounded-lg transition-colors duration-150 flex items-center justify-center gap-2"
+        >
+          <span>Trải Nghiệm Miễn Phí</span>
+          <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </a>
+        <a
+          href="#features"
+          class="w-full sm:w-auto px-5 py-3 text-sm font-semibold text-slate-300 hover:text-white bg-[#171a23] hover:bg-[#1f232f] border border-[#282d3d] rounded-lg transition-colors duration-150 flex items-center justify-center"
+        >
+          Xem Tính Năng Chi Tiết
+        </a>
+      </div>
+
+      <!-- Value Props Micro-list -->
+      <div class="pt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] sm:text-xs text-slate-400">
+        <div class="flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <span>Không cần thẻ tín dụng</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <span>Kết nối Zalo OA 2 phút</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <svg class="w-3.5 h-3.5 text-emerald-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <span>30 tin nhắn miễn phí/ngày</span>
+        </div>
+      </div>
+    </div>
+    <!-- Product Mockup Container (Realistic Browser Window) -->
+    <div class="mt-8 sm:mt-12 max-w-5xl mx-auto">
+      <div class="rounded-xl border border-[#232734] bg-[#0d0f17] shadow-xl overflow-hidden">
+        
+        <!-- Window Chrome Header -->
+        <div class="px-3.5 py-2 bg-[#11131a] border-b border-[#232734] flex items-center justify-between text-[11px] sm:text-xs font-mono text-slate-400">
+          <span class="truncate max-w-[200px] sm:max-w-none">ztks.taokosao.com</span>
+          <span class="text-slate-500 shrink-0">app / dashboard</span>
+        </div>
+
+        <!-- Dashboard Preview Grid -->
+        <div class="p-2.5 sm:p-5 bg-[#090a0f] grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4 items-center">
+          
+          <!-- Main Screenshot -->
+          <div class="lg:col-span-8 relative rounded-lg overflow-hidden border border-[#232734] bg-[#0d0f17]">
+            <img
+              src="/screenshots/01_home_dashboard.png"
+              alt="Giao diện Dashboard ZTKS"
+              class="w-full h-auto object-cover rounded-lg"
+              loading="eager"
+            />
+            <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-[#090a0f]/90 border border-[#282d3d] text-[10px] sm:text-xs font-mono text-slate-300">
+              OA: 5kcacanh
+            </div>
+          </div>
+
+          <!-- Feature Quick Cards -->
+          <div class="lg:col-span-4 space-y-2 sm:space-y-3">
+            
+            <div class="p-3 rounded-lg bg-[#11131a] border border-[#232734] space-y-1">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-white">Zalo VoIP Call</span>
+                <span class="text-[10px] font-mono text-slate-400 bg-[#171a23] px-1.5 py-0.5 rounded border border-[#282d3d]">WebRTC</span>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Gọi thoại và video trực tiếp từ trình duyệt tới tài khoản Zalo của khách hàng.
+              </p>
+            </div>
+
+            <div class="p-3 rounded-lg bg-[#11131a] border border-[#232734] space-y-1">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-white">Chiến Dịch ZNS</span>
+                <span class="text-[10px] font-mono text-slate-400 bg-[#171a23] px-1.5 py-0.5 rounded border border-[#282d3d]">Tự Động</span>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Tạo mẫu và gửi thông báo đơn hàng qua SĐT & Zalo UID với chi phí tối ưu.
+              </p>
+            </div>
+
+            <div class="p-3 rounded-lg bg-[#11131a] border border-[#232734] space-y-1">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-white">Đơn Hàng & SePay</span>
+                <span class="text-[10px] font-mono text-slate-400 bg-[#171a23] px-1.5 py-0.5 rounded border border-[#282d3d]">VietQR</span>
+              </div>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Tạo đơn hàng ngay khi chat và nạp tiền ví tự động trong 3 giây.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
