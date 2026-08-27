@@ -21,7 +21,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || siteConfig.url);
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/jpeg" href={siteConfig.logo} />
-    <link rel="shortcut icon" href="/logo.jpg" />
+    <link rel="shortcut icon" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/logo.jpg`} />
     <meta name="generator" content={Astro.generator} />
 
     <!-- Primary Meta Tags -->

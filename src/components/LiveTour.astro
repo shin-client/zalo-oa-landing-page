@@ -69,7 +69,7 @@ const tourScreens = [
               </span>
             </div>
             <img
-              src={screen.image}
+              src={screen.image.startsWith('http') ? screen.image : `${import.meta.env.BASE_URL.replace(/\/$/, '')}${screen.image}`}
               alt={screen.title}
               class="w-full h-48 object-cover object-top rounded border border-[#1f2330]"
               loading="lazy"

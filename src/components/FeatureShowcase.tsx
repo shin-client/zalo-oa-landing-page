@@ -124,7 +124,7 @@ export const FeatureShowcase: React.FC = () => {
               {/* Image Viewport */}
               <div className="p-2 sm:p-3 bg-[#090a0f] flex items-center justify-center min-h-[220px] sm:min-h-[380px]">
                 <img
-                  src={activeFeature.image}
+                  src={activeFeature.image.startsWith('http') ? activeFeature.image : `${(import.meta.env.BASE_URL || '/').replace(/\/$/, '')}${activeFeature.image}`}
                   alt={activeFeature.title}
                   className="w-full max-h-[360px] sm:max-h-[460px] object-contain rounded border border-[#1f2330]"
                   loading="lazy"
