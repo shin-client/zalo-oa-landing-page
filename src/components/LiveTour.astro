@@ -61,8 +61,13 @@ const tourScreens = [
       {tourScreens.map((screen) => (
         <div class="rounded-xl overflow-hidden border border-[#232734] bg-[#0d0f17] flex flex-col">
           
-          <!-- Image Frame -->
-          <div class="relative bg-[#090a0f] border-b border-[#232734] p-2">
+          <!-- Image Frame with Click to Zoom -->
+          <div 
+            class="relative bg-[#090a0f] border-b border-[#232734] p-2 cursor-zoom-in group/img overflow-hidden"
+            data-lightbox-trigger
+            data-src={screen.image.startsWith('http') ? screen.image : `${import.meta.env.BASE_URL.replace(/\/$/, '')}${screen.image}`}
+            data-title={screen.title}
+          >
             <div class="absolute top-3.5 right-3.5 z-10">
               <span class="px-2 py-0.5 text-[10px] font-semibold text-slate-200 bg-[#171a23]/90 border border-[#282d3d] rounded">
                 {screen.badge}
@@ -71,11 +76,18 @@ const tourScreens = [
             <img
               src={screen.image.startsWith('http') ? screen.image : `${import.meta.env.BASE_URL.replace(/\/$/, '')}${screen.image}`}
               alt={screen.title}
-              class="w-full h-48 object-cover object-top rounded border border-[#1f2330]"
+              class="w-full h-48 object-cover object-top rounded border border-[#1f2330] transition-transform duration-200 group-hover/img:scale-[1.02]"
               loading="lazy"
             />
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+              <span class="px-2.5 py-1 rounded bg-[#090a0f]/90 border border-[#282d3d] text-[11px] font-medium text-white flex items-center gap-1.5 shadow-lg">
+                <svg class="w-3.5 h-3.5 text-[#0068FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+                </svg>
+                Phóng lớn
+              </span>
+            </div>
           </div>
-
           <!-- Description -->
           <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
             <div>
@@ -103,5 +115,21 @@ const tourScreens = [
       ))}
     </div>
 
+
+<script>
+  document.querySelectorAll('[data-lightbox-trigger]').forEach((el) => {
+    el.addEventListener('click', () => {
+      const src = el.getAttribute('data-src');
+      const title = el.getAttribute('data-title');
+      if (src) {
+        window.dispatchEvent(
+          new CustomEvent('open-lightbox', {
+            detail: { src, title, alt: title },
+          })
+        );
+      }
+    });
+  });
+</script>
   </div>
 </section>

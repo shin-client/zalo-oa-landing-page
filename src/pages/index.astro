@@ -5,6 +5,7 @@ import Hero from '../components/Hero.astro';
 import Metrics from '../components/Metrics.astro';
 import PainPoints from '../components/PainPoints.astro';
 import { FeatureShowcase } from '../components/FeatureShowcase';
+import { ImageLightbox } from '../components/ImageLightbox';
 import LiveTour from '../components/LiveTour.astro';
 import Pricing from '../components/Pricing.astro';
 import SecurityCompliance from '../components/SecurityCompliance.astro';
@@ -26,5 +27,6 @@ import Footer from '../components/Footer.astro';
     <FAQ />
     <CTASection />
   </main>
+  <ImageLightbox client:load />
   <Footer />
 </Layout>

@@ -76,16 +76,29 @@ import { siteConfig } from '../data/site';
         <!-- Dashboard Preview Grid -->
         <div class="p-2.5 sm:p-5 bg-[#090a0f] grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4 items-center">
           
-          <!-- Main Screenshot -->
-          <div class="lg:col-span-8 relative rounded-lg overflow-hidden border border-[#232734] bg-[#0d0f17]">
+          <!-- Main Screenshot with Click to Zoom -->
+          <div 
+            class="lg:col-span-8 relative rounded-lg overflow-hidden border border-[#232734] hover:border-[#0068FF]/50 bg-[#0d0f17] cursor-zoom-in group/hero transition-colors"
+            data-lightbox-trigger
+            data-src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/screenshots/01_home_dashboard.png`}
+            data-title="Tổng Quan Dashboard ZTKS — Quản Lý Đa OA"
+          >
             <img
               src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/screenshots/01_home_dashboard.png`}
               alt="Giao diện Dashboard ZTKS"
-              class="w-full h-auto object-cover rounded-lg"
+              class="w-full h-auto object-cover rounded-lg transition-transform duration-200 group-hover/hero:scale-[1.01]"
               loading="eager"
             />
-            <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-[#090a0f]/90 border border-[#282d3d] text-[10px] sm:text-xs font-mono text-slate-300">
+            <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-[#090a0f]/90 border border-[#282d3d] text-[10px] sm:text-xs font-mono text-slate-300 z-10">
               OA: 5kcacanh
+            </div>
+            <div class="absolute inset-0 bg-black/30 opacity-0 group-hover/hero:opacity-100 transition-opacity flex items-center justify-center pointer-events-none">
+              <span class="px-3 py-1.5 rounded-lg bg-[#090a0f]/95 border border-[#282d3d] text-xs font-semibold text-white flex items-center gap-1.5 shadow-xl">
+                <svg class="w-4 h-4 text-[#0068FF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"></path>
+                </svg>
+                Click để phóng to & xem chi tiết
+              </span>
             </div>
           </div>
 
@@ -127,6 +140,22 @@ import { siteConfig } from '../data/site';
         </div>
       </div>
     </div>
+
+<script>
+  document.querySelectorAll('#hero [data-lightbox-trigger], .cursor-zoom-in[data-lightbox-trigger]').forEach((el) => {
+    el.addEventListener('click', () => {
+      const src = el.getAttribute('data-src');
+      const title = el.getAttribute('data-title');
+      if (src) {
+        window.dispatchEvent(
+          new CustomEvent('open-lightbox', {
+            detail: { src, title, alt: title },
+          })
+        );
+      }
+    });
+  });
+</script>
 
   </div>
 </section>

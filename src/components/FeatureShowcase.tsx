@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { features } from '../data/features';
-import type { FeatureItem } from '../types/landing';
 import {
   MessageSquare,
   PhoneCall,
@@ -10,8 +8,11 @@ import {
   Users,
   Wallet,
   CheckCircle2,
-  ExternalLink
+  ExternalLink,
+  Maximize2
 } from 'lucide-react';
+import type { FeatureItem } from '../types/landing';
+import { features } from '../data/features';
 
 const iconMap: Record<string, React.ReactNode> = {
   MessageSquare: <MessageSquare className="w-4 h-4 shrink-0" />,
@@ -111,22 +112,36 @@ export const FeatureShowcase: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Column: Clean Screenshot Frame */}
+          {/* Right Column: Clean Screenshot Frame with Click to Zoom */}
           <div className="lg:col-span-7 overflow-hidden">
-            <div className="rounded-lg sm:rounded-xl overflow-hidden border border-[#232734] bg-[#090a0f] shadow-lg">
-              
+            <div 
+              className="group relative rounded-lg sm:rounded-xl overflow-hidden border border-[#232734] hover:border-[#0068FF]/50 bg-[#090a0f] shadow-lg cursor-zoom-in transition-colors"
+              onClick={() => {
+                const resolvedSrc = activeFeature.image.startsWith('http') 
+                  ? activeFeature.image 
+                  : `${(import.meta.env.BASE_URL || '/').replace(/\/$/, '')}${activeFeature.image}`;
+                window.dispatchEvent(
+                  new CustomEvent('open-lightbox', {
+                    detail: { src: resolvedSrc, title: activeFeature.title, alt: activeFeature.title },
+                  })
+                );
+              }}
+            >
               {/* Clean Window Header */}
               <div className="px-3 py-1.5 sm:px-3.5 sm:py-2 bg-[#11131a] border-b border-[#232734] flex items-center justify-between text-[11px] sm:text-xs font-mono text-slate-400">
                 <span className="truncate max-w-[200px] sm:max-w-none">{activeFeature.image.replace('/screenshots/', '')}</span>
-                <span className="text-slate-500 shrink-0">1440 × 900</span>
+                <div className="flex items-center gap-1.5 text-slate-400 group-hover:text-white transition-colors">
+                  <Maximize2 className="w-3.5 h-3.5 text-[#0068FF]" />
+                  <span className="text-[11px] font-sans">Click để phóng lớn</span>
+                </div>
               </div>
 
               {/* Image Viewport */}
-              <div className="p-2 sm:p-3 bg-[#090a0f] flex items-center justify-center min-h-[220px] sm:min-h-[380px]">
+              <div className="relative p-2 sm:p-3 bg-[#090a0f] flex items-center justify-center min-h-[220px] sm:min-h-[380px]">
                 <img
                   src={activeFeature.image.startsWith('http') ? activeFeature.image : `${(import.meta.env.BASE_URL || '/').replace(/\/$/, '')}${activeFeature.image}`}
                   alt={activeFeature.title}
-                  className="w-full max-h-[360px] sm:max-h-[460px] object-contain rounded border border-[#1f2330]"
+                  className="w-full max-h-[360px] sm:max-h-[460px] object-contain rounded border border-[#1f2330] transition-transform duration-200 group-hover:scale-[1.01]"
                   loading="lazy"
                 />
               </div>
