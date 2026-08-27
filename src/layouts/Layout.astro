@@ -37,7 +37,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || siteConfig.url);
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={siteConfig.logo} />
+    <meta property="og:image" content={siteConfig.remoteLogo} />
     <meta property="og:locale" content="vi_VN" />
 
     <!-- Twitter -->
@@ -45,14 +45,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || siteConfig.url);
     <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={siteConfig.logo} />
+    <meta property="twitter:image" content={siteConfig.remoteLogo} />
 
     <!-- Optimized LCP Preload -->
-    <link rel="preload" as="image" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/screenshots/01_home_dashboard.png`} fetchpriority="high" />
+    <link rel="preload" as="image" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/screenshots/01_home_dashboard.webp`} fetchpriority="high" type="image/webp" />
 
-    <!-- Optimized Google Fonts with Non-blocking Async Loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Non-blocking Async Google Fonts -->
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" media="print" onload="this.media='all'" />
     <noscript>

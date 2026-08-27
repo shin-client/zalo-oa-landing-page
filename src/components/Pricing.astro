@@ -69,8 +69,8 @@ function formatCurrency(amount: number): string {
                   </li>
                 ))}
                 {plan.excludedFeatures?.map((excluded) => (
-                  <li class="flex items-start gap-2 text-slate-500 line-through">
-                    <svg class="w-4 h-4 text-slate-600 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <li class="flex items-start gap-2 text-slate-400 line-through decoration-slate-500">
+                    <svg class="w-4 h-4 text-slate-400 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                     <span>{excluded}</span>

@@ -4,8 +4,8 @@ import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
 import Metrics from '../components/Metrics.astro';
 import PainPoints from '../components/PainPoints.astro';
-import { FeatureShowcase } from '../components/FeatureShowcase';
-import { ImageLightbox } from '../components/ImageLightbox';
+import FeatureShowcase from '../components/FeatureShowcase.astro';
+import ImageLightbox from '../components/ImageLightbox.astro';
 import LiveTour from '../components/LiveTour.astro';
 import Pricing from '../components/Pricing.astro';
 import SecurityCompliance from '../components/SecurityCompliance.astro';
@@ -20,13 +20,13 @@ import Footer from '../components/Footer.astro';
     <Hero />
     <Metrics />
     <PainPoints />
-    <FeatureShowcase client:visible />
+    <FeatureShowcase />
     <LiveTour />
     <Pricing />
     <SecurityCompliance />
     <FAQ />
     <CTASection />
   </main>
-  <ImageLightbox client:idle />
+  <ImageLightbox />
   <Footer />
 </Layout>
