@@ -143,6 +143,9 @@ export const FeatureShowcase: React.FC = () => {
                   alt={activeFeature.title}
                   className="w-full max-h-[360px] sm:max-h-[460px] object-contain rounded border border-[#1f2330] transition-transform duration-200 group-hover:scale-[1.01]"
                   loading="lazy"
+                  decoding="async"
+                  width={960}
+                  height={540}
                 />
               </div>
             </div>

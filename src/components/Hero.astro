@@ -69,10 +69,9 @@ import { siteConfig } from '../data/site';
         
         <!-- Window Chrome Header -->
         <div class="px-3.5 py-2 bg-[#11131a] border-b border-[#232734] flex items-center justify-between text-[11px] sm:text-xs font-mono text-slate-400">
-          <span class="truncate max-w-[200px] sm:max-w-none">ztks.taokosao.com</span>
-          <span class="text-slate-500 shrink-0">app / dashboard</span>
+          <span class="truncate max-w-[200px] sm:max-w-none text-slate-300">ztks.taokosao.com</span>
+          <span class="text-slate-400 shrink-0">app / dashboard</span>
         </div>
-
         <!-- Dashboard Preview Grid -->
         <div class="p-2.5 sm:p-5 bg-[#090a0f] grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4 items-center">
           
@@ -88,6 +87,10 @@ import { siteConfig } from '../data/site';
               alt="Giao diện Dashboard ZTKS"
               class="w-full h-auto object-cover rounded-lg transition-transform duration-200 group-hover/hero:scale-[1.01]"
               loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              width="960"
+              height="540"
             />
             <div class="absolute bottom-2 left-2 px-2 py-0.5 rounded bg-[#090a0f]/90 border border-[#282d3d] text-[10px] sm:text-xs font-mono text-slate-300 z-10">
               OA: 5kcacanh
